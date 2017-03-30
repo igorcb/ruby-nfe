@@ -11,6 +11,7 @@ module NFe
     attr_accessor :veiculo
     attr_accessor :vol
     attr_accessor :info
+    attr_accessor :infoProt
 
 		def initializer
 			#@versao_processo_emissao = Nfe::Config::Params::VERSAO_PADRAO
@@ -24,6 +25,7 @@ module NFe
 			@veiculo = NFe::Veiculo.new
 			@vol = NFe::Volume.new
 			@info = NFe::Info.new
+			@infoProt = NFe::InfoProtocolo.new
 			@versao = '2.0' #criar uma constante em params da versao da NF-e
 		end
 
@@ -37,6 +39,7 @@ module NFe
 			self.veiculo = NFe::Veiculo.new
 			self.vol = NFe::Volume.new
 			self.info = NFe::Info.new
+			self.infoProt = NFe::InfoProtocolo.new
 			produto = Produto.new
 			produto.xml_to_hash(file)
 			
@@ -49,6 +52,7 @@ module NFe
 			self.veiculo.serialize(@veiculo.xml_to_hash(doc.elements.css('transp/veicTransp')))
 			self.vol.serialize(@vol.xml_to_hash(doc.elements.css('transp/vol')))
 			self.info.serialize(@info.xml_to_hash(doc.elements.css('infAdic')))
+			self.infoProt.serialize(@infoProt.xml_to_hash(doc.elements.css('protNFe/infProt')))
 			self.prod = produto.all_products
 			self
 

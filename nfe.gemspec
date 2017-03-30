@@ -11,17 +11,17 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Consulta arquivo XML da Sefaz.}
   spec.description   = %q{Consulta arquivo XML da Sefaz e serealiza em objeto.}
-  spec.homepage      = "http://github.com"
+  spec.homepage      = "https://github.com/igorcb/ruby-nfe"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
-  end
+  # if spec.respond_to?(:metadata)
+  #   spec.metadata['allowed_push_host'] = "https://rubygems.org"
+  # else
+  #   raise "RubyGems 2.0 or newer is required to protect against " \
+  #     "public gem pushes."
+  # end
   
   spec.files       = Dir["{lib/**/*.rb,README.rdoc,test/**/*.rb,Rakefile,*.gemspec}"]
   # spec.files         = `git ls-files -z`.split("\x0").reject do |f|

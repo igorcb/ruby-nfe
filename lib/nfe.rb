@@ -15,6 +15,7 @@ require 'nfe/entidades/infNFe/transp/transportadora.rb'
 require 'nfe/entidades/infNFe/transp/veiculo.rb'
 require 'nfe/entidades/infNFe/transp/volume.rb'
 require 'nfe/entidades/infNFe/infAdic/info.rb'
+require 'nfe/entidades/protNFe/infProt.rb'
 
 
 
