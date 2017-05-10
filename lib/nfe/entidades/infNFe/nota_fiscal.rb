@@ -7,6 +7,7 @@ module NFe
     attr_accessor :emit
     attr_accessor :dest
     attr_accessor :prod
+    attr_accessor :icms_tot
     attr_accessor :transp
     attr_accessor :veiculo
     attr_accessor :vol
@@ -21,6 +22,7 @@ module NFe
 			@dest = NFe::Destinatario.new
 			@dest.endereco_destinatario = NFe::EnderecoDesinatario.new
 			@prod = []
+			@icms_tot = NFe::IcmsTot.new
 			@transp = NFe::Transportadora.new
 			@veiculo = NFe::Veiculo.new
 			@vol = NFe::Volume.new
@@ -35,6 +37,7 @@ module NFe
 			self.emit = NFe::Emitente.new
 			self.dest = NFe::Destinatario.new
 			self.emit.endereco_emitente = NFe::EnderecoEmitente.new
+			self.icms_tot = NFe::IcmsTot.new
 			self.transp = NFe::Transportadora.new
 			self.veiculo = NFe::Veiculo.new
 			self.vol = NFe::Volume.new
@@ -48,6 +51,7 @@ module NFe
 			self.emit.endereco_emitente = NFe::EnderecoEmitente.new.xml_to_hash(doc.elements.css('emit'))
 			self.dest.serialize(@dest.xml_to_hash(doc.elements.css('dest')))
 			self.dest.endereco_destinatario = NFe::EnderecoDestinatario.new.xml_to_hash(doc.elements.css('dest'))
+			self.icms_tot.serialize(@icms_tot.xml_to_hash(doc.elements.css('total/ICMSTot')))
 			self.transp.serialize(@transp.xml_to_hash(doc.elements.css('transp/transporta')))
 			self.veiculo.serialize(@veiculo.xml_to_hash(doc.elements.css('transp/veicTransp')))
 			self.vol.serialize(@vol.xml_to_hash(doc.elements.css('transp/vol')))
