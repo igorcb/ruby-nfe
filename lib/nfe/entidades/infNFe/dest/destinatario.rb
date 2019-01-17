@@ -3,6 +3,7 @@ module NFe
   class Destinatario < NFe::EntidadeNFe
     xml_name :emit
     attr_accessor :xNome
+    attr_accessor :CPF
     attr_accessor :CNPJ
     attr_accessor :enderDest
     attr_accessor :indIEDest
@@ -16,6 +17,7 @@ module NFe
     def attributes
       @attributes = {
           "xNome" => xNome,
+          "CPF" => CPF,
           "CNPJ" => CNPJ,
           "enderEmit" => @enderEmit,
           "indIEDest" => indIEDest,
@@ -26,6 +28,7 @@ module NFe
     def attributes=(params)
       @attributes = {
           "xNome" => params["razao_social"],
+          "CPF" => params["cpf"],
           "CNPJ" => params["cnpj"],
           "enderDest" => params["enderDest"],
           "indIEDest" => params["indIEDest"],
